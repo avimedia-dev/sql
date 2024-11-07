@@ -53,6 +53,14 @@ def update(selected_album, artist, album, year, genre):
     cursor.execute(update_data, (artist, album, year, genre, selected_album[0] ))
     conn.commit()
 
+def get_max_id():
+    cursor.execute("SELECT MAX(id) from albums")
+    res = cursor.fetchall()
+    if res[0] != None:
+        return res[0]
+    else:
+        return 0
+
 
 def __del__():  # destructor call when all instances of object has been deleted
     print("__del__ called")
