@@ -1,14 +1,12 @@
-# python -m venv venv
-# .\venv\Scripts\activate
 import sqlite3
 from sqlite3 import Error
 
 import os
-db_path = "./databases/movies.db"
+db_path = "../databases/employees.db"
 
 def connect_to_db(filename):
     if not os.path.isfile(filename):
-        raise FileNotFoundError(f"Database file '{filename}' does not exist.")
+        print(f"Database file '{filename}' does not exist and it will be created.")
     return sqlite3.connect(filename)
 
 try:
@@ -20,3 +18,4 @@ try:
 except Error as e:
     print(e)
     conn = None
+

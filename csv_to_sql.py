@@ -26,7 +26,7 @@ cursor.execute("CREATE TABLE IF NOT EXISTS movies(id INT, \
 column_names = ["id", "title", "overview", "popularity", "release_date", "vote_average", "vote_count"]
 movie_data = pd.read_csv('leffat.csv', delimiter=';', names=column_names)
 # Define correct column names as per the database table schema
-
+print(movie_data.head(5))
 
 movie_data.to_sql('movies', connection, if_exists='append', index=False)
 
